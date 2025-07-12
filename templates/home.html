@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Home - My Personal Blog{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1 style="margin-bottom: 2rem; color: #333; font-size: 2.5rem;">Welcome to My Blog</h1>
+    
+    {% if articles %}
+        <div class="article-list">
+            {% for article in articles %}
+                <article class="article-item">
+                    <h2 class="article-title">
+                        <a href="{{ url_for('article', article_id=article.id) }}">{{ article.title }}</a>
+                    </h2>
+                    <div class="article-meta">
+                        Published on {{ article.date }}
+                    </div>
+                    <div class="article-excerpt">
+                        {% if article.content|length > 200 %}
+                            {{ article.content[:200] }}...
+                        {% else %}
+                            {{ article.content }}
+                        {% endif %}
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <a href="{{ url_for('article', article_id=article.id) }}" class="btn btn-primary">Read More</a>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div style="text-align: center; padding: 3rem 0;">
+            <h2 style="color: #6c757d; margin-bottom: 1rem;">No Articles Yet</h2>
+            <p style="color: #6c757d; font-size: 1.1rem;">Check back soon for new content!</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %} 

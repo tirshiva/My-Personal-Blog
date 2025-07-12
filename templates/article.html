@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} - My Personal Blog{% endblock %}
+
+{% block content %}
+<div class="card">
+    <article>
+        <header style="margin-bottom: 2rem;">
+            <h1 style="font-size: 2.5rem; color: #333; margin-bottom: 1rem;">{{ article.title }}</h1>
+            <div class="article-meta" style="font-size: 1.1rem;">
+                Published on {{ article.date }}
+            </div>
+        </header>
+        
+        <div class="article-content" style="line-height: 1.8; font-size: 1.1rem; color: #495057;">
+            {{ article.content|safe }}
+        </div>
+        
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e9ecef;">
+            <a href="{{ url_for('home') }}" class="btn btn-secondary">← Back to Home</a>
+        </div>
+    </article>
+</div>
+{% endblock %} 
