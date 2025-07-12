@@ -2,6 +2,8 @@
 
 A simple, elegant personal blog built with Flask that allows you to write and publish articles. The blog features both a guest section for readers and an admin section for content management.
 
+https://roadmap.sh/projects/personal-blog
+
 ## Features
 
 ### Guest Section
